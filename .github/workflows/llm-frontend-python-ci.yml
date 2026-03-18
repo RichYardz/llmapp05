@@ -54,7 +54,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: richyardzllm-frontend-python
+          images: richyardz/llm-frontend-python
           tags: |
             type=sha
             type=ref,event=branch
@@ -67,7 +67,7 @@ jobs:
         with:
           context: llm-frontend-python
           load: true
-          tags: richyardzllm-frontend-python:scan
+          tags: richyardz/llm-frontend-python:scan
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -76,7 +76,7 @@ jobs:
         env:
           TRIVY_DISABLE_VEX_NOTICE: "true"
         with:
-          image-ref: richyardzllm-frontend-python:scan
+          image-ref: richyardz/llm-frontend-python:scan
           format: 'table'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
